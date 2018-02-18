@@ -18,35 +18,31 @@
 
 <body>
     <nav class="navbar navbar-expand-md navbar-light bg-faded">
-        <a class="navbar-brand mb-0 h1" href="#">Re-Direct</a>
+        <a class="navbar-brand mb-0 h1" href="./">Re-Direct</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
         <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
             <div class="navbar-nav">
-                <a class="nav-item nav-link active" href="#">Home <span class="sr-only">(current)</span></a>
+                <a class="nav-item nav-link" href="./">Home</a>
+                <a class="nav-item nav-link active" href="./encode.html">Encode</a>
 
             </div>
         </div>
     </nav>
     <div class="jumbotron jumbotron-fluid">
         <div class="container">
-            <h1 class="display-4">Re-Direct</h1>
-            <p class="lead">Re-Direct is a simple page to unblock urls that social media might have blocked. This might not work on all urls.</p>
+            <h1 class="display-4">Encode</h1>
+            <p class="lead">Encode a url.</p>
         </div>
     </div>
-    <div class="container">
-        <h1>Encode</h1>
+    <div class="container page">
             <div class="form-group">
                 <label for="exampleInputEmail1">Web Address</label>
                 <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter URL">
                 <small id="emailHelp" class="form-text text-muted"></small>
             </div>
             <button type="submit" class="btn btn-primary" onclick="encode();">Encode</button>
-            <div class="form-group">
-                <label for="exampleInputPassword1">Output</label>
-                <input type="text" class="form-control" id="exampleInputPassword1" placeholder="Encoded URL">
-            </div>
     </div>
     <script src="css/b64.js"></script>
     <script>
@@ -57,7 +53,7 @@
 
         function encode() {
             e(document.getElementById('exampleInputEmail1').value, function(data) {
-                document.getElementById('exampleInputPassword1').value = "https://bren00x.github.io/re-direct/index#/"+data
+                document.getElementById('exampleInputEmail1').value = "https://bren00x.github.io/re-direct/#/"+data
             })
         }
     </script>

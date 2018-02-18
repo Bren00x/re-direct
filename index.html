@@ -18,13 +18,14 @@
 
 <body>
     <nav class="navbar navbar-expand-md navbar-light bg-faded">
-        <a class="navbar-brand mb-0 h1" href="#">Re-Direct</a>
+        <a class="navbar-brand mb-0 h1" href="./">Re-Direct</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
         <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
             <div class="navbar-nav">
-                <a class="nav-item nav-link active" href="#">Home <span class="sr-only">(current)</span></a>
+                <a class="nav-item nav-link active" href="./">Home <span class="sr-only">(current)</span></a>
+                <a class="nav-item nav-link" href="./encode.html">Encode</a>
 
             </div>
         </div>
@@ -32,25 +33,36 @@
     <div class="jumbotron jumbotron-fluid">
         <div class="container">
             <h1 class="display-4">Re-Direct</h1>
-            <p class="lead">Re-Direct is a simple page to unblock urls that social media might have blocked. This might not work on all urls.</p>
         </div>
     </div>
-    <div class="container">
-        <h1>Redirecting</h1>
+    <div class="container page" id="page">
+        
     </div>
     <script src="css/b64.js"></script>
     <script>
-        
-        var b = function(hash, callback){
-            callback(base32.decode(hash));
-        },
+        var b = function(hash, callback) {
+                callback(base32.decode(hash));
+            },
             w = window.location.hash.substr(1)
         if (window.location.hash.indexOf("/") > -1) {
-            b(w,function(data){
-                window.location.replace(data)
+            b(w, function(data) {
+                
+                //window.location.replace(data)
+               document.getElementById("page").innerHTML = `
+        <h1>Re-Directing</h1>
+        <p class="lead">Are you sure you want to go to: </p>
+        <div class="url">`+data+`</div>
+        <button type="submit" class="btn btn-primary" onclick="window.location.replace('`+data+`')">Yes Go!</button>
+`;
             })
         } else {
             console.warn("[error] url not found")
+            document.getElementById("page").innerHTML = `
+        <h1>Welcome!</h1>
+        <p class="lead">Re-Direct is a simple page to unblock urls that social media might have blocked. This might not work on all urls.</p>
+        <button type="submit" class="btn btn-primary" onclick="window.location.replace('./encode.html')">Encode Now!</button>
+                                                        `;
+
         }
 
     </script>
